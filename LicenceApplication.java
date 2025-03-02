@@ -65,8 +65,7 @@ public static void Adminreviewandapproval() throws InterruptedException {
     System.out.println("""
             What else you want to do?
             1. Check the update of traffic rules
-            2. Check the level of traffic knowledge you have
-            3. See the list of traffic violation you have done""");
+            2. Check the level of traffic knowledge you have""");
     extra= Registration.scannerobject.nextInt();
     switch (extra){
         case 2:
