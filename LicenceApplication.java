@@ -74,11 +74,11 @@ public static void Adminreviewandapproval() throws InterruptedException {
                     {"What does a red traffic light mean?" +
                             "A) Go\n" +
                             "B) Slow down\n" +
-                            "C) Stop", "Stop"},
+                            "C) Stop", "stop"},
                     {" What should you do if an emergency vehicle (ambulance, fire truck) is behind you with sirens on?" +
                             "A) Speed up\n" +
                             "B) Stop immediately\n" +
-                            "C) Pull over to the side and allow it to pass", "Pull over to the side and allow it to pass"},
+                            "C) Pull over to the side and allow it to pass", "pull over to the side and allow it to pass"},
                     {"What is the maximum speed limit in a school zone?" +
                             "A) 50 km/h\n" +
                             "B) 20 km/h\n" +
@@ -86,38 +86,38 @@ public static void Adminreviewandapproval() throws InterruptedException {
                     {"Which side should you overtake another vehicle from?" +
                             "A) Left\n" +
                             "B) Right\n" +
-                            "C) Any side", "JRight"},
+                            "C) Any side", "right"},
                     {"What does a yellow traffic light mean?" +
                             "A) Stop immediately\n" +
                             "B) Prepare to stop\n" +
-                            "C) Speed up", "Prepare to stop"},
+                            "C) Speed up", "prepare to stop"},
                     {"What is the penalty for driving without a license in Nepal?\n" +
                             "A) Rs. 1000 fine\n" +
                             "B) Rs. 1500 fine\n" +
-                            "C) Rs. 5000 fine", "Rs. 5000 fine"}
+                            "C) Rs. 5000 fine", "rs. 5000 fine"}
             };
 
+            for (int i=0; i<5;i++) {
+                // Select a random question
+                int index = random.nextInt(quiz.length);
+                Registration.scannerobject.nextLine();
+                System.out.println("Question: " + quiz[index][0]);
 
+                // Get user answer
+                System.out.print("Your Answer: ");
+                String userAnswer = Registration.scannerobject.nextLine();
+                userAnswer = userAnswer.toLowerCase();
+                // Check answer
+                if (userAnswer.equals(quiz[index][1])) {
+                    System.out.println("Correct!");
+                    count++;
+                } else {
+                    System.out.println("Wrong! The correct answer is: " + quiz[index][1]);
+                    count--;
 
-            // Select a random question
-            int index = random.nextInt(quiz.length);
-            System.out.println("Question: " + quiz[index][0]);
-
-            // Get user answer
-            System.out.print("Your Answer: ");
-            String userAnswer = Registration.scannerobject.nextLine();
-
-            // Check answer
-            if (userAnswer.equalsIgnoreCase(quiz[index][1])) {
-                System.out.println("Correct!");
-                count++;
-            } else {
-                System.out.println("Wrong! The correct answer is: " + quiz[index][1]);
-                count--;
-
+                }
             }
 
-            Registration.scannerobject.close();
             if (count>3){
                 System.out.println("congs,"+ Userdetail.name+"you have high level of traffic knowledge.");
             } else if (count<3) {
@@ -125,6 +125,7 @@ public static void Adminreviewandapproval() throws InterruptedException {
             } else{
                 System.out.println("Did you attempt the questions? 😵‍💫");
             }
+            break;
         case 1:
             String [][] update={
                     {"Odd-Even Vehicle Operation in Kathmandu" +
@@ -145,7 +146,7 @@ public static void Adminreviewandapproval() throws InterruptedException {
                             "Entry Points (Nakas): Vehicle movement is reported to be normal."}
             };
             int updateint = random.nextInt(update.length);
-            System.out.println("Question: " + update[updateint][0]);
+            System.out.println("Latest Update: " + update[updateint][0]);
             TimeUnit.SECONDS.sleep(1);
     }
     }
