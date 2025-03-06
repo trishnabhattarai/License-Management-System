@@ -3,7 +3,7 @@
 import java.util.Scanner;
 
 public class Registration {
-    public static String rocketemoji="🚀";
+    public static String[] emoji= {"🚀","✨","😊","❌","✔️","😕"};
     public static String firstname, lastname, occupation, blood_group, gender, citizenship_issue_district,date_of_birth;
     public static int required_age, userenteredID,userenteredamount, requiredamount,age,citizenship_number;
     public static String small_vechicles, nexteligibility, citizenshippath, drivinglicencepath ,medicalpath, passwordsizepath, licencecategory;

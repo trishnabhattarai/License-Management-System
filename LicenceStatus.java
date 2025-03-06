@@ -1,6 +1,7 @@
 public class LicenceStatus {
     public static boolean licencereview= false;
     public static int licencecategory, userid, license_number;
+    public  static Userdetail userdetailobj= new Userdetail();
     public static void rules_of_traffic(){
         System.out.println("""
                 Speed Limits
@@ -44,13 +45,13 @@ public class LicenceStatus {
         useragree= useragree.toLowerCase();
         switch (useragree){
             case "yes":
-                System.out.println("Congs,"+Userdetail.name+" for your licence approval."+LicenceApplication.staremoji);
+                System.out.println("Congs,"+userdetailobj.getName()+" for your licence approval."+Registration.emoji[4]);
                 userid= (int) ((Math.random()*90000)+10000);
                 System.out.println("Your user ID is: "+userid);
                 licencereview= true;
                 break;
             case "no":
-                System.out.println(Userdetail.crossemoji+" Sry doesn't approved.");
+                System.out.println(Registration.emoji[3]+" Sry doesn't approved.");
                 break;
         }
     }
@@ -67,7 +68,7 @@ public class LicenceStatus {
                 long userenteredcitizenshipnumber= Registration.scannerobject.nextLong();
                 System.out.println("Enter password:");
                 String userenteredpassword= Registration.scannerobject.next();
-                if (userenteredcitizenshipnumber==Userdetail.citizenship_number && userenteredpassword.equals(Userdetail.password)){
+                if (userenteredcitizenshipnumber==userdetailobj.getCitizenship_number() && userenteredpassword.equals(userdetailobj.getPassword())){
                     System.out.println("Hence, Successfully Login.");
                 }
                 else {
@@ -75,8 +76,8 @@ public class LicenceStatus {
                 }
                 break;
             case 2:
-                Userdetail.user_detail_for_signup();
-                Userdetail.User_status_case2_loop_for_password();
+                userdetailobj.Userdetail(LicenceStatus.userdetailobj.getName(), LicenceStatus.userdetailobj.getAddress(),LicenceStatus.userdetailobj.getPhonenumber(), LicenceStatus.userdetailobj.getCitizenship_number(), LicenceStatus.userdetailobj.getPassword() );
+                userdetailobj.User_status_case2_loop_for_password();
                 break;
         }
     }

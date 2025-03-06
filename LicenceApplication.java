@@ -2,13 +2,13 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class LicenceApplication {
-    public static String staremoji= "✨";
+
     public static String filepath;
     public static int count, extra;
 public static Random random = new Random();
     public static void file_upload_for_licence(){
         //we can't upload file directly in console so we are using File class to check the path of the licence file.
-        System.out.println(staremoji+"""
+        System.out.println(Registration.emoji[1]+"""
                 plzz provide the path of vehicle training completion certificate.
                 """);
         takingfilepathfromtheuser();
@@ -17,50 +17,50 @@ public static Random random = new Random();
         filepath= Registration.scannerobject.next();
         filepath= filepath.toLowerCase();
         if (filepath.endsWith(".pdf")){
-            System.out.println(Userdetail.tickemoji+" File has been uploaded successfully.");
+            System.out.println(Registration.emoji[4]+" File has been uploaded successfully.");
         }
         else {
-            System.out.println("File path is invalid:"+ Userdetail.sademoji);
+            System.out.println("File path is invalid:"+ Registration.emoji[5]);
         }
     }
     public static void requirement_for_licence(){
         System.out.println("Enter the age:");
         int age= Registration.scannerobject.nextInt();
         if (age>=Registration.required_age){
-            System.out.println(Userdetail.tickemoji+" Age requirement meet.");
+            System.out.println(Registration.emoji[4]+" Age requirement meet.");
             System.out.println("Enter years of experience:");
             int experence= Registration.scannerobject.nextInt();
 
             if (experence>2){
-                System.out.println(Userdetail.tickemoji+" Experience requirement meet.");
+                System.out.println(Registration.emoji[4]+" Experience requirement meet.");
                 LicenceStatus.rules_of_traffic();
             }
             else if(experence <2) {
                 System.out.println("Enter the experience for small vehicles like "+Registration.small_vechicles);
                 int smallvehiclesexperence= Registration.scannerobject.nextInt();
                 if (smallvehiclesexperence>=2){
-                    System.out.println(Userdetail.tickemoji+" Experience requirement meet.");
+                    System.out.println(Registration.emoji[4]+" Experience requirement meet.");
                     LicenceStatus.rules_of_traffic();
                 }
                 else {
-                    System.out.println(Userdetail.crossemoji+" Sry rejected.");
+                    System.out.println(Registration.emoji[3]+" Sry rejected.");
                 }
 
             } else if (experence==2) {
-                System.out.println(Userdetail.tickemoji+" Experience requirement meet.");
+                System.out.println(Registration.emoji[4]+" Experience requirement meet.");
                 LicenceStatus.rules_of_traffic();
             }
         }else {
-            System.out.println(Userdetail.crossemoji+" Sry rejected.");
+            System.out.println(Registration.emoji[3]+" Sry rejected.");
         }
     }
 public static void Adminreviewandapproval() throws InterruptedException {
     System.out.println("Enter your licence number or userId:");
     Registration.userenteredID= Registration.scannerobject.nextInt();
     if ((LicenceStatus.licencereview= true) && (Registration.userenteredID== LicenceStatus.userid || (Registration.userenteredID== LicenceStatus.license_number))){
-        System.out.println("Your licence has been approve. "+Registration.rocketemoji);
+        System.out.println("Your licence has been approve. "+Registration.emoji[0]);
     }else {
-        System.out.println("Your licence is not approve ."+Userdetail.sademoji);
+        System.out.println("Your licence is not approve ."+Registration.emoji[5]);
     }
     System.out.println("""
             What else you want to do?
@@ -119,9 +119,9 @@ public static void Adminreviewandapproval() throws InterruptedException {
             }
 
             if (count>3){
-                System.out.println("congs,"+ Userdetail.name+"you have high level of traffic knowledge.");
+                System.out.println("congs,"+ LicenceStatus.userdetailobj.getName()+"you have high level of traffic knowledge.");
             } else if (count<3) {
-                System.out.println("Good! "+Userdetail.name+" you can increase your knowledge by practising above question.");
+                System.out.println("Good! "+LicenceStatus.userdetailobj.getName()+" you can increase your knowledge by practising above question.");
             } else{
                 System.out.println("Did you attempt the questions? 😵‍💫");
             }

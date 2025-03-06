@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+
 public class Renew {
+    public static ArrayList<String> renewaldetail= new ArrayList<>();
     public static void licencerenew(){
         LicenceApplication.filepath= Registration.drivinglicencepath; // filepath value is stored in drivinglicencepath and now filepath is empty.
         System.out.println("File path of original Driving licence:");
@@ -29,23 +32,23 @@ public class Renew {
         if (Registration.userenteredamount == Registration.requiredamount){
             System.out.println("*****Plzz fill below form****");
             System.out.println("First Name:");
-            Registration.firstname= Registration.scannerobject.next();
+            renewaldetail.add(Registration.scannerobject.next());
             System.out.println("Last Name:");
-            Registration.lastname= Registration.scannerobject.next();
+            renewaldetail.add(Registration.scannerobject.next());
             System.out.println("Age:");
-            Registration.age= Registration.scannerobject.nextInt();
+            renewaldetail.add(String.valueOf(Registration.scannerobject.nextInt()));
             System.out.println("Occupation:");
-            Registration.occupation= Registration.scannerobject.next();
+            renewaldetail.add(Registration.scannerobject.next());
             System.out.println("Blood Group:");
-            Registration.blood_group= Registration.scannerobject.next();
+            renewaldetail.add(Registration.scannerobject.next());
             System.out.println("Citizenship Number:");
-            Registration.citizenship_number= Registration.scannerobject.nextInt();
+            renewaldetail.add(String.valueOf(Registration.scannerobject.nextInt()));
             System.out.println("Date of birth:");
-            Registration.date_of_birth= Registration.scannerobject.next();
+            renewaldetail.add(Registration.scannerobject.next());
             System.out.println("Gender:");
-            Registration.gender= Registration.scannerobject.next();
+            renewaldetail.add(Registration.scannerobject.next());
             System.out.println("Citizenship Issue District:");
-            Registration.citizenship_issue_district= Registration.scannerobject.next();
+            renewaldetail.add(Registration.scannerobject.next());
     }
 }
 public static void choosing_number_case4(){
@@ -63,21 +66,23 @@ public static void choosing_number_case4(){
             Registration.requiredamount= 3000;
             Renew.licence_category_form();
             break;
+        default:
+            System.out.println("Enter the category like car, bus, motorcycle.");
     }
     System.out.println("+-------------------------------------------------------------------------------------+");
     System.out.println("|                                          USER INFO                                  |");
     System.out.println("+-------------------------------------------------------------------------------------+");
     System.out.println("| Licence Category:              "+ Registration.licencecategory+"                    |");
-    System.out.println("| First Name:                    "+ Registration.firstname+"                          |");
-    System.out.println("| Last Name:                     "+ Registration.lastname+"                           |");
-    System.out.println("| Age:                           "+ Registration.age+"                                |");
-    System.out.println("| Occupation:                    "+ Registration.occupation+"                         |");
-    System.out.println("| Blood Group:                   "+ Registration.blood_group+"                        |");
-    System.out.println("| Citizenship Number:            "+ Registration.citizenship_number+"                 |");
-    System.out.println("| Date of Birth:                 "+ Registration.date_of_birth+"                      |");
-    System.out.println("| Gender:                        "+ Registration.gender+"                             |");
-    System.out.println("| Citizenship Issue District:    "+ Registration.citizenship_issue_district+"         |");
+    System.out.println("| First Name:                    "+ renewaldetail.get(0)+"                          |");
+    System.out.println("| Last Name:                     "+ renewaldetail.get(1)+"                           |");
+    System.out.println("| Age:                           "+ renewaldetail.get(2)+"                                |");
+    System.out.println("| Occupation:                    "+ renewaldetail.get(3)+"                         |");
+    System.out.println("| Blood Group:                   "+ renewaldetail.get(4)+"                        |");
+    System.out.println("| Citizenship Number:            "+ renewaldetail.get(5)+"                 |");
+    System.out.println("| Date of Birth:                 "+ renewaldetail.get(6)+"                      |");
+    System.out.println("| Gender:                        "+ renewaldetail.get(7)+"                             |");
+    System.out.println("| Citizenship Issue District:    "+ renewaldetail.get(8)+"         |");
     System.out.println("+-------------------------------------------------------------------------------------+");
-    System.out.println("Your licence has Renewal."+ Registration.rocketemoji);
+    System.out.println("Your licence has Renewal."+ Registration.emoji[0]);
 }
 }
